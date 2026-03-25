@@ -1,0 +1,110 @@
+.home-page {
+    width: 100%;
+}
+
+.hero {
+    background-color: var(--bg-light);
+    padding: 60px 20px;
+    border-radius: var(--border-radius);
+    text-align: center;
+    margin-bottom: 40px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.hero-title {
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 25px;
+    color: var(--text-dark);
+}
+
+.search-form {
+    display: flex;
+    width: 100%;
+    max-width: 700px;
+    background-color: var(--bg-white);
+    padding: 8px;
+    border-radius: 50px;
+    box-shadow: var(--card-shadow);
+}
+
+.search-input {
+    flex: 1;
+    border: none;
+    outline: none;
+    padding: 0 20px;
+    font-size: 1.1rem;
+    font-family: inherit;
+}
+
+.search-btn {
+    background-color: var(--primary-green);
+    color: white;
+    padding: 12px 30px;
+    border-radius: 40px;
+    font-weight: 600;
+    font-size: 1rem;
+}
+
+.search-btn:hover {
+    background-color: var(--primary-green-hover);
+}
+
+.recipe-grid-container {
+    padding-bottom: 40px;
+}
+
+.section-title {
+    font-size: 1.8rem;
+    font-weight: 700;
+    margin-bottom: 25px;
+    border-bottom: 2px solid var(--border-color);
+    padding-bottom: 10px;
+}
+
+.recipe-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 30px;
+}
+
+.loading,
+.error,
+.no-recipes {
+    text-align: center;
+    padding: 40px;
+    font-size: 1.2rem;
+    color: var(--text-light);
+}
+
+.error {
+    color: #e74c3c;
+}
+
+@media (max-width: 600px) {
+    .hero-title {
+        font-size: 1.8rem;
+    }
+
+    .search-form {
+        flex-direction: column;
+        border-radius: 12px;
+        background: transparent;
+        box-shadow: none;
+        gap: 10px;
+        padding: 0;
+    }
+
+    .search-input {
+        background: white;
+        padding: 15px 20px;
+        border-radius: 12px;
+        box-shadow: var(--card-shadow);
+    }
+
+    .search-btn {
+        border-radius: 12px;
+    }
+}

@@ -1,0 +1,83 @@
+.navbar {
+    height: 80px;
+    background-color: var(--bg-white);
+    border-bottom: 1px solid var(--border-color);
+    display: flex;
+    align-items: center;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.navbar-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px;
+}
+
+.navbar-logo {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--text-dark);
+}
+
+.logo-accent {
+    color: var(--primary-green);
+}
+
+.navbar-links {
+    display: flex;
+    gap: 30px;
+}
+
+.navbar-links a {
+    font-weight: 500;
+    color: var(--text-light);
+    transition: color 0.2s;
+    padding-bottom: 5px;
+    border-bottom: 2px solid transparent;
+}
+
+.navbar-links a:hover,
+.navbar-links a.active {
+    color: var(--primary-green);
+    border-bottom: 2px solid var(--primary-green);
+}
+
+.navbar-auth {
+    display: flex;
+    align-items: center;
+}
+
+.user-menu {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.user-greeting {
+    font-weight: 500;
+    color: var(--text-dark);
+}
+
+.btn-logout {
+    background: none;
+    color: var(--text-light);
+    font-size: 0.9rem;
+    text-decoration: underline;
+}
+
+.btn-logout:hover {
+    color: var(--primary-green);
+}
+
+@media (max-width: 768px) {
+    .navbar-links {
+        display: none;
+        /* Add a hamburger menu later if needed */
+    }
+}

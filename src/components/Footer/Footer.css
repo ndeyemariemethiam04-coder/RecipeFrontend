@@ -1,0 +1,30 @@
+.footer {
+    background-color: var(--bg-light);
+    border-top: 1px solid var(--border-color);
+    padding: 40px 20px;
+    margin-top: 60px;
+}
+
+.footer-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.copyright {
+    color: var(--text-light);
+    font-size: 0.95rem;
+}
+
+.author {
+    font-size: 0.9rem;
+    color: var(--text-light);
+}
+
+.author-name {
+    color: var(--primary-green);
+    font-weight: 600;
+}
