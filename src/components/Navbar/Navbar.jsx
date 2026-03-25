@@ -5,6 +5,10 @@ import './Navbar.css';
 
 const Navbar = () => {
     const { user, logout } = useAuth();
+    const [isMenuOpen, setIsMenuOpen] = useState(false);
+
+    const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
+    const closeMenu = () => setIsMenuOpen(false);
 
     return (
         <nav className="navbar">
@@ -13,25 +17,29 @@ const Navbar = () => {
                     <span className="logo-accent">Chipi</span>FoodBlog
                 </Link>
 
-                <ul className="navbar-links">
-                    <li><NavLink to="/" className={({ isActive }) => isActive ? 'active' : ''}>Explore</NavLink></li>
-                    <li><NavLink to="/categories" className={({ isActive }) => isActive ? 'active' : ''}>Categories</NavLink></li>
-                    <li><NavLink to="/favorites" className={({ isActive }) => isActive ? 'active' : ''}>Favorites</NavLink></li>
-                    {user && (
-                        <li><NavLink to="/my-recipes" className={({ isActive }) => isActive ? 'active' : ''}>My Recipes</NavLink></li>
-                    )}
-                </ul>
-
-                <div className="navbar-auth">
+                {/* Replaced original navbar-links and navbar-auth with new structure */}
+                <div className={`nav-links ${isMenuOpen ? 'open' : ''}`}>
+                    <Link to="/" className="nav-link" onClick={closeMenu}>Explore</Link>
+                    <Link to="/categories" className="nav-link" onClick={closeMenu}>Categories</Link>
+                    <Link to="/favorites" className="nav-link" onClick={closeMenu}>Favorites</Link>
                     {user ? (
-                        <div className="user-menu">
-                            <span className="user-greeting">Hi, {user.name || user.email.split('@')[0]}</span>
-                            <button onClick={logout} className="btn-logout">Logout</button>
-                        </div>
+                        <>
+                            <Link to="/my-recipes" className="nav-link" onClick={closeMenu}>My Recipes</Link>
+                            <div className="user-info">
+                                <span className="user-name">Hi, {user.email.split('@')[0]}</span>
+                                <button onClick={() => { logout(); closeMenu(); }} className="logout-btn">Logout</button>
+                            </div>
+                        </>
                     ) : (
-                        <Link to="/login" className="btn-primary">Login / Signup</Link>
+                        <Link to="/login" className="btn-primary" onClick={closeMenu}>Account</Link>
                     )}
                 </div>
+
+                <button className="hamburger" onClick={toggleMenu} aria-label="Menu">
+                    <span className={`bar ${isMenuOpen ? 'active' : ''}`}></span>
+                    <span className={`bar ${isMenuOpen ? 'active' : ''}`}></span>
+                    <span className={`bar ${isMenuOpen ? 'active' : ''}`}></span>
+                </button>
             </div>
         </nav>
     );

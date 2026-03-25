@@ -9,6 +9,7 @@ const RecipeForm = ({ onSubmit, onCancel, onDelete, initialData = {} }) => {
         ingredients: initialData.ingredients ? initialData.ingredients.join('\n') : '',
         instructions: initialData.instructions || '',
         coverImage: initialData.coverImage || '',
+        category: initialData.category || 'Lunch',
     });
 
     const handleChange = (e) => {
@@ -45,6 +46,16 @@ const RecipeForm = ({ onSubmit, onCancel, onDelete, initialData = {} }) => {
                     <div className="form-group">
                         <label>Title</label>
                         <input name="title" value={formData.title} onChange={handleChange} required placeholder="e.g. Grandma's Apple Pie" />
+                    </div>
+
+                    <div className="form-group">
+                        <label>Category</label>
+                        <select name="category" value={formData.category} onChange={handleChange} required>
+                            <option value="Lunch">Lunch</option>
+                            <option value="Dinner">Dinner</option>
+                            <option value="Breakfast">Breakfast</option>
+                            <option value="Collation">Collation</option>
+                        </select>
                     </div>
 
                     <div className="form-row">
