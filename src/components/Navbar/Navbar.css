@@ -29,31 +29,28 @@
     color: var(--primary-green);
 }
 
-.navbar-links {
+.nav-links {
     display: flex;
     gap: 30px;
+    align-items: center;
 }
 
-.navbar-links a {
+.nav-link {
     font-weight: 500;
     color: var(--text-light);
     transition: color 0.2s;
     padding-bottom: 5px;
     border-bottom: 2px solid transparent;
+    text-decoration: none;
 }
 
-.navbar-links a:hover,
-.navbar-links a.active {
+.nav-link:hover,
+.nav-link.active {
     color: var(--primary-green);
     border-bottom: 2px solid var(--primary-green);
 }
 
-.navbar-auth {
-    display: flex;
-    align-items: center;
-}
-
-.user-menu {
+.user-info {
     display: flex;
     align-items: center;
     gap: 15px;
